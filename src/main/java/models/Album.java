@@ -10,7 +10,19 @@ public class Album {
     private int quantity;
     private float price;
 
-
+    // constructors time
+    public Album(){
+        this(-1, "", "", null, false, 0, 0F);
+    }
+    public Album(int id, String album_name, String artist_name, String[] track_listing, boolean hasPhotoCards, int quantity, float price) {
+        this.id = id;
+        this.album_name = album_name;
+        this.artist_name = artist_name;
+        this.track_listing = track_listing;
+        this.hasPhotoCards = hasPhotoCards;
+        this.quantity = quantity;
+        this.price = price;
+    }
 
     public int getID() {
         return id;

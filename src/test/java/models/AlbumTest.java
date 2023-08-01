@@ -7,6 +7,29 @@ import org.junit.Test;
 
 public class AlbumTest {
     @Test
+    public void constructorTest(){
+        //Given
+        int expectedId = 17;
+        String expectedAlbumName = "Going Seventeen";
+        String expectedArtistName = "SVT";
+        String[] expectedTrackListing = new String[]{"Boom Boom", "Fast Pace"};
+        boolean expectedPC = true;
+        int expectedQty = 10;
+        float expectedPrice = 22.5f;
+        //When
+        Album testAlbum = new Album(expectedId, expectedAlbumName, expectedArtistName, expectedTrackListing,
+                expectedPC, expectedQty, expectedPrice);
+        //Then
+        Assert.assertEquals(expectedId, testAlbum.getID());
+        Assert.assertEquals(expectedAlbumName, testAlbum.getAlbumName());
+        Assert.assertEquals(expectedArtistName, testAlbum.getArtistName());
+        Assert.assertEquals(expectedTrackListing, testAlbum.getTrackListing());
+        Assert.assertEquals(expectedPC, testAlbum.hasPhotoCards());
+        Assert.assertEquals(expectedQty, testAlbum.getQuantity());
+        Assert.assertEquals(expectedPrice, testAlbum.getPrice(), 0.001);
+    }
+
+    @Test
     public void setIDTest() {
         //Given
         int expected = 17;

@@ -10,6 +10,20 @@ public class BubbleTea {
     private int quantity;
     private float price;
 
+    // constructors
+    public BubbleTea(){
+        this("green", 1F, 100, true, true, 0, 0F);
+    }
+    public BubbleTea(String tea_base, float iceLevel, int sugarLevel, boolean hasBubbles, boolean hasMilk, int quantity, float price) {
+        this.tea_base = tea_base;
+        this.iceLevel = iceLevel;
+        this.sugarLevel = sugarLevel;
+        this.hasBubbles = hasBubbles;
+        this.hasMilk = hasMilk;
+        this.quantity = quantity;
+        this.price = price;
+    }
+
     public String getTeaBase() {
         return tea_base;
     }

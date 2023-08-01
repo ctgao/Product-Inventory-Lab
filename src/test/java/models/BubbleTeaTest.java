@@ -7,6 +7,29 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class BubbleTeaTest {
     @Test
+    public void constructorTest(){
+        //Given
+        String expectedTea = "Going Seventeen";
+        float expectedIce = .25F;
+        int expectedSugar = 50;
+        boolean expectedMilk = false;
+        boolean expectedBubbles = false;
+        int expectedQty = 3;
+        float expectedPrice = 5.45f;
+        //When
+        BubbleTea testTeaing = new BubbleTea(expectedTea, expectedIce, expectedSugar, expectedBubbles,
+                expectedMilk, expectedQty, expectedPrice);
+        //Then
+        Assert.assertEquals(expectedTea, testTeaing.getTeaBase());
+        Assert.assertEquals(expectedIce, testTeaing.getIceLevel(), 0.001);
+        Assert.assertEquals(expectedSugar, testTeaing.getSugarLevel());
+        Assert.assertEquals(expectedBubbles, testTeaing.hasBubbles());
+        Assert.assertEquals(expectedMilk, testTeaing.hasMilk());
+        Assert.assertEquals(expectedQty, testTeaing.getQuantity());
+        Assert.assertEquals(expectedPrice, testTeaing.getPrice(), 0.001);
+    }
+
+    @Test
     public void setTeaBaseTest() {
         //Given
         String expected = "Oolong";
