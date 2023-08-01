@@ -2,6 +2,7 @@ package models;
 
 public class BubbleTea {
     // my variables here
+    private int id;
     private String tea_base;
     private float iceLevel;
     private int sugarLevel;
@@ -12,9 +13,10 @@ public class BubbleTea {
 
     // constructors
     public BubbleTea(){
-        this("green", 1F, 100, true, true, 0, 0F);
+        this(-1, "green", 1F, 100, true, true, 0, 0F);
     }
-    public BubbleTea(String tea_base, float iceLevel, int sugarLevel, boolean hasBubbles, boolean hasMilk, int quantity, float price) {
+    public BubbleTea(int id, String tea_base, float iceLevel, int sugarLevel, boolean hasBubbles, boolean hasMilk, int quantity, float price) {
+        this.id = id;
         this.tea_base = tea_base;
         this.iceLevel = iceLevel;
         this.sugarLevel = sugarLevel;
@@ -22,6 +24,14 @@ public class BubbleTea {
         this.hasMilk = hasMilk;
         this.quantity = quantity;
         this.price = price;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTeaBase() {

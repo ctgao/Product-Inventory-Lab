@@ -9,6 +9,7 @@ public class BubbleTeaTest {
     @Test
     public void constructorTest(){
         //Given
+        int expectedId = 30;
         String expectedTea = "Going Seventeen";
         float expectedIce = .25F;
         int expectedSugar = 50;
@@ -17,9 +18,10 @@ public class BubbleTeaTest {
         int expectedQty = 3;
         float expectedPrice = 5.45f;
         //When
-        BubbleTea testTeaing = new BubbleTea(expectedTea, expectedIce, expectedSugar, expectedBubbles,
+        BubbleTea testTeaing = new BubbleTea(expectedId, expectedTea, expectedIce, expectedSugar, expectedBubbles,
                 expectedMilk, expectedQty, expectedPrice);
         //Then
+        Assert.assertEquals(expectedId, testTeaing.getId());
         Assert.assertEquals(expectedTea, testTeaing.getTeaBase());
         Assert.assertEquals(expectedIce, testTeaing.getIceLevel(), 0.001);
         Assert.assertEquals(expectedSugar, testTeaing.getSugarLevel());
@@ -27,6 +29,17 @@ public class BubbleTeaTest {
         Assert.assertEquals(expectedMilk, testTeaing.hasMilk());
         Assert.assertEquals(expectedQty, testTeaing.getQuantity());
         Assert.assertEquals(expectedPrice, testTeaing.getPrice(), 0.001);
+    }
+
+    @Test
+    public void setIDTest() {
+        //Given
+        int expected = 17;
+        BubbleTea testTeaing = new BubbleTea();
+        //When
+        testTeaing.setId(expected);
+        //Then
+        Assert.assertEquals(expected, testTeaing.getId());
     }
 
     @Test
