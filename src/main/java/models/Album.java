@@ -1,14 +1,11 @@
 package models;
 
-public class Album {
+public class Album extends InventoryItem{
     // my variables here
-    private int id;
     private String album_name;
     private String artist_name;
     private String[] track_listing;
     private boolean hasPhotoCards;
-    private int quantity;
-    private float price;
 
     // constructors time
     public Album(){
@@ -22,14 +19,6 @@ public class Album {
         this.hasPhotoCards = hasPhotoCards;
         this.quantity = quantity;
         this.price = price;
-    }
-
-    public int getID() {
-        return id;
-    }
-
-    public void setID(int id) {
-        this.id = id;
     }
 
     public String getAlbumName() {
@@ -64,19 +53,8 @@ public class Album {
         this.hasPhotoCards = hasPhotoCards;
     }
 
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public float getPrice() {
-        return price;
-    }
-
-    public void setPrice(float price) {
-        this.price = price;
+    @Override
+    public String toString(){
+        return album_name + " by " + artist_name;
     }
 }

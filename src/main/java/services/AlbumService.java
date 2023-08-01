@@ -16,7 +16,7 @@ public class AlbumService {
 
     public Album findAlbum(int id){
         for(Album a : inventory){
-            if(id == a.getID()){
+            if(id == a.getId()){
                 return a;
             }
         }

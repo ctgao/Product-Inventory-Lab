@@ -1,15 +1,12 @@
 package models;
 
-public class BubbleTea {
+public class BubbleTea extends InventoryItem{
     // my variables here
-    private int id;
     private String tea_base;
     private float iceLevel;
     private int sugarLevel;
     private boolean hasBubbles;
     private boolean hasMilk;
-    private int quantity;
-    private float price;
 
     // constructors
     public BubbleTea(){
@@ -24,14 +21,6 @@ public class BubbleTea {
         this.hasMilk = hasMilk;
         this.quantity = quantity;
         this.price = price;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getTeaBase() {
@@ -74,19 +63,19 @@ public class BubbleTea {
         this.hasMilk = hasMilk;
     }
 
-    public int getQuantity() {
-        return quantity;
-    }
+    @Override
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append(Character.toUpperCase(tea_base.charAt(0)));
+        sb.append(tea_base.toLowerCase().substring(1));
+        if(hasMilk){
+            sb.append(" Milk");
+        }
+        if(hasBubbles){
+            sb.append(" Bubble");
+        }
+        sb.append(" Tea");
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public float getPrice() {
-        return price;
-    }
-
-    public void setPrice(float price) {
-        this.price = price;
+        return sb.toString();
     }
 }

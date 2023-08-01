@@ -1,8 +1,11 @@
 import io.Console;
 import services.AlbumService;
+import services.BubbleTeaService;
 
 public class App {
     private AlbumService albumService = new AlbumService();
+    private BubbleTeaService bobaService = new BubbleTeaService();
+
     public static void main(String... args){
         App application = new App();
         application.init();
@@ -54,7 +57,11 @@ public class App {
     }
 
     private void printOverview() {
-        
+        // print your albums
+        Console.printAllInventory("Album", albumService.findAll());
+        // print your boba
+        Console.printAllInventory("Bubble Tea", bobaService.findAll());
+        Console.createSpace();
     }
 
     private void createProducts() {
