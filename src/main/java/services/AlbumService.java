@@ -34,4 +34,8 @@ public class AlbumService {
         }
         return false;
     }
+
+    public int getSize() {
+        return inventory.size();
+    }
 }

@@ -1,5 +1,7 @@
 package models;
 
+import io.Console;
+
 public class BubbleTea extends InventoryItem{
     // my variables here
     private String tea_base;
@@ -66,8 +68,7 @@ public class BubbleTea extends InventoryItem{
     @Override
     public String toString(){
         StringBuilder sb = new StringBuilder();
-        sb.append(Character.toUpperCase(tea_base.charAt(0)));
-        sb.append(tea_base.toLowerCase().substring(1));
+        sb.append(Console.camelCase(tea_base));
         if(hasMilk){
             sb.append(" Milk");
         }

@@ -49,7 +49,7 @@ public class Console {
                 "***           Goodbye and Au Revoir            ***\n" +
                 "***                   from                     ***\n" +
                 "***         ZipCode Inventory Manager          ***\n" +
-                "**************************************************\n");
+                "**************************************************");
     }
 
     public static <T extends InventoryItem> void printAllInventory(String className, T[] array) {
@@ -61,7 +61,7 @@ public class Console {
         }
         //"Album [id]: [album_name] [quantity] for [price]"
         //"Boba [id]: [boba_name - to string methods?] [quantity] for [price]"
-        String toPrint = "%s %d: %100s\t%d for %.2f\n";
+        String toPrint = "%s %d:\t%20s\t%10d sold for %.2f\n";
         for(T value : array){
             int id = value.getId();
             String name = value.toString();
@@ -73,6 +73,54 @@ public class Console {
     }
 
     public static void createSpace() {
-        System.out.println();
+        printPrompt("");
+    }
+
+    public static void printPrompt(String s) {
+        System.out.println(s);
+    }
+
+    public static Float waitForFloatInput() {
+        String response = waitForStringInput();
+        try{
+            return Float.valueOf(response);
+        }
+        catch (RuntimeException e){
+            System.out.println("BAD INPUT! Try again :)");
+            return waitForFloatInput();
+        }
+    }
+
+    public static boolean waitForBooleanInput() {
+        String response = waitForStringInput().toLowerCase();
+        if(response.contains("yes")){
+            return true;
+        }
+        else if(response.contains("no")){
+            return false;
+        }
+        try{
+            return Boolean.valueOf(response);
+        }
+        catch (RuntimeException e){
+            System.out.println("BAD INPUT! Try again :)");
+            return waitForBooleanInput();
+        }
+    }
+
+    public static String[] askForTracks() {
+        System.out.println("How many tracks?");
+        int numOfTracks = waitForIntegerInput();
+        String[] result = new String[numOfTracks];
+        for(int i = 1; i <= numOfTracks; i++){
+            System.out.format("Track No. %d?\n", i);
+            String response = waitForStringInput();
+            result[i - 1] = camelCase(response);
+        }
+        return result;
+    }
+
+    public static String camelCase(String input){
+        return input.toUpperCase().charAt(0) + input.toLowerCase().substring(1);
     }
 }

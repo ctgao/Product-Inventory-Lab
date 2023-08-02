@@ -36,4 +36,8 @@ public final class BubbleTeaService {
         }
         return false;
     }
+
+    public int getSize() {
+        return inventory.size();
+    }
 }
